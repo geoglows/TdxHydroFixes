@@ -128,7 +128,7 @@ def correct_0_length_streams(sgdf: gpd.GeoDataFrame,
 
     return sgdf
 
-def correct_0_length_basins(basins_gpq: str,
+def correct_0_length_basins(basins_gpg: str,
                             save_dir: str,
                             stream_id_col: str, 
                             region_num: int) -> gpd.GeoDataFrame:
@@ -136,14 +136,14 @@ def correct_0_length_basins(basins_gpq: str,
     Apply fixes to streams that have 0 length.
 
     Args:
-        basins_gpq: Basins to correct
+        basins_gpg: Basins to correct
         save_dir: Directory to save the corrected basins to
         stream_id_col:
 
     Returns:
 
     """
-    basin_gdf = gpd.read_file(basins_gpq)
+    basin_gdf = gpd.read_file(basins_gpg)
 
     zero_fix_csv_path = os.path.join(save_dir, f'mod_basin_zero_centroid_{region_num}.csv')
     if os.path.exists(zero_fix_csv_path):

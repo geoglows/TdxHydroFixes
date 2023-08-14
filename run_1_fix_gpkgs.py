@@ -30,26 +30,26 @@ order_field = 'strmOrder'
 length_field = 'Length'
 
 if __name__ == '__main__':
-    for streams_gpq, basins_gpq in gis_iterable:
+    for streams_gpg, basins_gpg in gis_iterable:
         # Identify the region being processed
-        region_num = os.path.basename(streams_gpq)
+        region_num = os.path.basename(streams_gpg)
         region_num = region_num.split('_')[2]
         region_num = int(region_num)
 
         # log a bunch of stuff
         logging.info('')
         logging.info(region_num)
-        logging.info(streams_gpq)
-        logging.info(basins_gpq)
+        logging.info(streams_gpg)
+        logging.info(basins_gpg)
 
         # output names
-        out_streams = os.path.join(outputs_path, os.path.basename(streams_gpq))
-        out_basins = os.path.join(outputs_path, os.path.basename(basins_gpq))
+        out_streams = os.path.join(outputs_path, os.path.basename(streams_gpg))
+        out_basins = os.path.join(outputs_path, os.path.basename(basins_gpg))
 
         try:
             # streams
             if not os.path.exists(out_streams):
-                steams_gdf = stream_corrections(streams_gpq,
+                steams_gdf = stream_corrections(streams_gpg,
                                     save_dir=outputs_path,
                                     id_field=id_field,
                                     ds_id_field=ds_field,
@@ -62,7 +62,7 @@ if __name__ == '__main__':
             # basins
             if not os.path.exists(out_basins):
                 logging.info('Reading basins')
-                basins_gdf = correct_0_length_basins(basins_gpq,
+                basins_gdf = correct_0_length_basins(basins_gpg,
                                         save_dir=outputs_path,
                                         stream_id_col=basin_id_field,
                                         region_num=region_num

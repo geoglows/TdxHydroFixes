@@ -14,7 +14,7 @@ __all__ = [
     'stream_corrections',
 ]
 
-def stream_corrections(streams_gpq: str,
+def stream_corrections(streams_gpg: str,
                 save_dir: str,
                 id_field: str = 'LINKNO',
                 ds_id_field: str = 'DSLINKNO',
@@ -34,7 +34,7 @@ def stream_corrections(streams_gpq: str,
 
 
     Args:
-        streams_gpq: str, path to the streams geoparquet
+        streams_gpg: str, path to the streams geoparquet
         save_dir: str, path to the directory to save the master files
         id_field: str, field name for the link id
         ds_id_field: str, field name for the downstream link id
@@ -52,7 +52,7 @@ def stream_corrections(streams_gpq: str,
     Returns:
         None
     """
-    sgdf = gpd.read_file(streams_gpq)
+    sgdf = gpd.read_file(streams_gpg)
 
     logger.info('\tRemoving 0 length segments')
     if 0 in sgdf[length_field].values:
