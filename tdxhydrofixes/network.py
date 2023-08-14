@@ -1,9 +1,7 @@
-import glob
 import logging
 import os
 
 import geopandas as gpd
-import networkx as nx
 import numpy as np
 import pandas as pd
 import shapely.geometry as sg
