@@ -1,4 +1,5 @@
-
+# TDXHydroFixes
+Louis R. Rosas, Dr Riley Hales, Josh Ogden
 
 ## Overview
 Provides functions for fixing errors in the TDX stream network and basins.
